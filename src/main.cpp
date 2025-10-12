@@ -1,8 +1,8 @@
 #include <Arduino.h>
 #include "DHT.h"
 
-#define DHTPIN 4      // GPIO4 connected to AM2302 DATA (middle pin)
-#define DHTTYPE DHT22 // AM2302 is same as DHT22
+#define DHTPIN 4      
+#define DHTTYPE DHT22
 
 DHT dht(DHTPIN, DHTTYPE);
 
@@ -11,18 +11,18 @@ void setup() {
   delay(1000);
   Serial.println("\n\n=== AM2302 Temperature & Humidity Sensor Test ===");
   dht.begin();
-  delay(2000); // Give sensor time to initialize
+  delay(2000); 
 }
 
 void loop() {
-  delay(3000);  // Wait 3 seconds between readings
+  delay(3000); 
   
-  // Read sensor
+  // to read sens
   float humidity = dht.readHumidity();
   float tempC = dht.readTemperature();
-  float tempF = dht.readTemperature(true);  // true = Fahrenheit
+  float tempF = dht.readTemperature(true);  
   
-  // Check if reading failed
+  // error check
   if (isnan(humidity) || isnan(tempC)) {
     Serial.println("❌ ERROR: Failed to read from sensor!");
     Serial.println("   Check your wiring:");
@@ -32,7 +32,7 @@ void loop() {
     return;
   }
   
-  // Print readings
+  // print
   Serial.println("\n========== Sensor Reading ==========");
   Serial.print("🌡️  Temperature: ");
   Serial.print(tempF, 1);
