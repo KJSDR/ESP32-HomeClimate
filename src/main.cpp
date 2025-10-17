@@ -7,10 +7,10 @@
 #define MQ135_PIN 4       // MQ-135 analog output connected to GPIO 4
 
 // Sensor Thresholds
-#define TEMP_MIN 60.0     // Minimum comfortable temperature (°F)
-#define TEMP_MAX 78.0     // Maximum comfortable temperature (°F)
-#define HUMIDITY_MAX 70.0 // Maximum acceptable humidity (%)
-#define AIR_QUALITY_MIN 500 // Minimum acceptable air quality reading
+#define TEMP_MIN 60.0    
+#define TEMP_MAX 78.0     
+#define HUMIDITY_MAX 70.0 
+#define AIR_QUALITY_MIN 500  
 
 // Initialize DHT22 sensor
 DHT dht(DHTPIN, DHTTYPE);
@@ -60,12 +60,12 @@ void loop() {
   // Delay between readings
   delay(3000);
   
-  // Read DHT22 sensor
+  // Read DHT22 
   float humidity = dht.readHumidity();
   float tempC = dht.readTemperature();
-  float tempF = dht.readTemperature(true); // Read temperature in Fahrenheit
+  float tempF = dht.readTemperature(true); 
   
-  // Read MQ-135 air quality sensor (analog value 0-4095)
+  // Read MQ-135 value 0-4095
   int airQuality = analogRead(MQ135_PIN);
   
   // Check for DHT22 sensor errors
