@@ -103,3 +103,9 @@ MIT License - feel free to use this project as inspiration for your own learning
 
 2 - DHT22/AM2302 sensor connected, code uploaded, temperature and humidity read succesful
 ![alt text](arduinov2.jpg)
+
+3 - MQ135 sensor connected, all sensor readings working
+![alt text](IMG_6592.jpeg)
+
+4 - LEDs and LCD screen connected w/ resistors
+![alt text](IMG_6590.jpeg)
