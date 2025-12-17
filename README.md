@@ -95,17 +95,3 @@ ESP32, C/C++, Arduino Framework, PlatformIO, I2C Protocol, MQTT (planned), React
 ## License
 
 MIT License - feel free to use this project as inspiration for your own learning
-
-## Pictures as I go clean up later
-
-1 - ESP32 connected, upload test successful
-![alt text](arduinov1.jpg)
-
-2 - DHT22/AM2302 sensor connected, code uploaded, temperature and humidity read succesful
-![alt text](arduinov2.jpg)
-
-3 - MQ135 sensor connected, all sensor readings working
-![alt text](IMG_6592.jpeg)
-
-4 - LEDs and LCD screen connected w/ resistors
-![alt text](IMG_6590.jpeg)
