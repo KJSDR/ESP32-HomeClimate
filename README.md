@@ -91,7 +91,3 @@ Detailed circuit diagrams and breadboard layouts available in /docs folder. Key 
 ## Technologies Used
 
 ESP32, C/C++, Arduino Framework, PlatformIO, I2C Protocol, MQTT (planned), React.js (planned), Git/GitHub
-
-## License
-
-MIT License - feel free to use this project as inspiration for your own learning
