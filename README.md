@@ -91,3 +91,7 @@ Detailed circuit diagrams and breadboard layouts available in /docs folder. Key 
 ## Technologies Used
 
 ESP32, C/C++, Arduino Framework, PlatformIO, I2C Protocol, MQTT (planned), React.js (planned), Git/GitHub
+
+## Learning 
+
+Quality of hardware matters. The $25 adafruit board and the $5 budget board have been the difference between hours of frustration vs it working in 5 minutes. Budget board too me hours to get the board to upload and would hardly read signal for the sensors. New board uploaded first try and everything worked right away
