@@ -1,51 +1,45 @@
 #include <Arduino.h>
 #include "config.h"
 #include "sensors.h"
-#include "display.h"
-#include "logic.h"
+
+unsigned long lastReading = 0;
 
 void setup() {
-  // Initialize serial communication
-  Serial.begin(SERIAL_BAUD);
+  Serial.begin(115200);
   delay(2000);
   
-  // Print header
-  printHeader();
-  
-  // Initialize all modules
-  Serial.println("🔄 Initializing system...\n");
   initSensors();
-  initDisplay();
   
-  Serial.println("\n✅ System ready! Starting monitoring...\n");
-  delay(2000);
+  Serial.println("{\"status\":\"System initialized\"}");
 }
 
 void loop() {
-  // Read all sensors
-  float temperature = readTemperature();
+  // Read every 3 seconds
+  if (millis() - lastReading < 3000) {
+    return;
+  }
+  lastReading = millis();
+  
+  // Read sensors
+  float temp = readTemperature();
   float humidity = readHumidity();
   int airQuality = readAirQuality();
   
-  // Check if sensor data is valid
-  if (!isSensorDataValid(temperature, humidity)) {
-    Serial.println("❌ ERROR: Sensor read failed!\n");
-    digitalWrite(LED_RED, HIGH);
-    digitalWrite(LED_GREEN, LOW);
-    delay(UPDATE_INTERVAL);
+  // Check validity
+  if (isnan(temp) || isnan(humidity)) {
+    Serial.println("{\"error\":\"Sensor read failed\"}");
     return;
   }
   
-  // Print readings
-  printReadings(temperature, humidity, airQuality);
-  
-  // Analyze conditions
-  bool alert = shouldCloseWindow(temperature, humidity, airQuality);
-  
-  // Update outputs
-  updateLEDs(alert);
-  printRecommendation(alert);
-  
-  // Wait before next reading
-  delay(UPDATE_INTERVAL);
+  // Output JSON
+  Serial.print("{");
+  Serial.print("\"temp\":");
+  Serial.print(temp, 1);
+  Serial.print(",\"humidity\":");
+  Serial.print(humidity, 1);
+  Serial.print(",\"air_quality\":");
+  Serial.print(airQuality);
+  Serial.print(",\"timestamp\":");
+  Serial.print(millis());
+  Serial.println("}");
 }
