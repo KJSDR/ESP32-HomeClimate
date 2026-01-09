@@ -24,14 +24,11 @@ A real-time environmental monitoring system built with ESP32 that provides intel
 
 ## Hardware Components
 
-- Microcontroller: ESP32-WROOM-32 (WiFi/Bluetooth enabled)
+- Microcontroller: Adafruit ESP32 Feather (WiFi/Bluetooth enabled)
 - Temperature/Humidity Sensor: DHT22 (AM2302)
 - Air Quality Sensor: MQ-135
-- Display: I2C LCD 1602 (16x2 characters)
-- Visual Alert: RGB LED (common cathode)
-- Audio Alert: Active Buzzer (5V)
 - Breadboard: 830 tie-points
-- Jumper Wires and Resistors (220Ω, 10kΩ)
+- Jumper Wires
 
 ## System Architecture
 
